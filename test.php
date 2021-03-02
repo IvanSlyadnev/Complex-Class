@@ -106,7 +106,7 @@ if (isset($_POST['click'])) {
 
 <?php 
 class Complex {
-	private $x;	
+	private $x;
 	private $y;
 	private $name;
 
@@ -119,12 +119,16 @@ class Complex {
 
 	public function show () 
 	{
-
-		echo $this->name . ' = ';
-		if ($this->x == 0) echo $this->y.'i'."<br>";
-		else if ($this->y > 0) echo $this->x . '+' . $this->y . 'i'."<br>";
-		else if ($this->y < 0) echo $this->x . $this->y . 'i'."<br>";
-		else echo $this->x."<br>";
+		if ($this->name == 'mis') {
+			echo "Неверно были введены данные";
+		}
+		else {
+			echo $this->name . ' = ';
+			if ($this->x == 0) echo $this->y.'i'."<br>";
+			else if ($this->y > 0) echo $this->x . '+' . $this->y . 'i'."<br>";
+			else if ($this->y < 0) echo $this->x . $this->y . 'i'."<br>";
+			else echo $this->x."<br>";
+		}
  	}
 
  	public function getX() {
@@ -155,9 +159,10 @@ class Complex {
 			return new Complex($numerator->getX()/$deminator->getX(),
 					$numerator->getY()/$deminator->getX(), $name);
 			
+		} else {
+			return new Complex(null,null, 'mis');
 		}
 	}
 }
-
 
 ?>
